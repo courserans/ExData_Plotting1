@@ -9,7 +9,7 @@
 
 rawdata <- read.csv("household_power_consumption.txt", sep =";",na.strings="?",stringsAsFactors=FALSE)
 rawdata <- transform(rawdata, Date=as.Date(Date,"%d/%m/%Y"))
-data <- subset(rawdata, Date >= as.Date("2007-02-01") & Date <= as.Date("2007-02-02"))
+data <- subset(rawdata, Date == as.Date("2007-02-01") | Date == as.Date("2007-02-02"))
 
 hist(data$Global_active_power, col="red", xlab = "Global Active Power (kilowatts)", main ="Global Active Power")
 dev.copy(png, file = "plot1.png", width=480, height=480 ) 
